@@ -1,6 +1,6 @@
-#define lora_wan_h
+#define loraWan_h
 
-class lora_wan
+class loraWan
 {
 private:
     int PROG_PIN;
@@ -11,7 +11,7 @@ private:
     long t_BAUD;
     bool GATEWAY;
 public:
-    lora_wan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200, long t_baud);
+    loraWan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200, long t_baud=9600);
     void progMode();
     void progModeDis();
     void setDestination(int destinationID);

@@ -11,11 +11,11 @@ v0.1
 */
 #include "Arduino.h"
 // #include <Serial.h>
-#include "lora_wan.h"
+#include "loraWan.h"
 // lora_wan constructor for starting the communication with the LoRa module.
 // The Default baud rate for normal serial communication for this specific module is 115200 bauds. This may change depending your module.
 // Default pins are used when the arduino is connected to the hardware serial ports. This is included here with plans to use software serial in the future.
-lora_wan::lora_wan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200, long t_baud=9600) 
+loraWan::loraWan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200, long t_baud=9600) 
 {
     PROG_PIN = PROG;  // Program mode pin
     CTS_PIN = CTS;   // Clear to Send pin
@@ -33,7 +33,7 @@ lora_wan::lora_wan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200
 // program mode is set by pulling the PROG_PIN low (as specified in the module docs).
 // You need to invoke this function before you can set various module parameters such as node address, destination , power, baud etc....
 
-void lora_wan::progMode()
+void loraWan::progMode()
 {
 
    if(Serial){
@@ -45,7 +45,7 @@ void lora_wan::progMode()
 
 //  progModeDis function for disbling the program mode. Call this function once you are done with setting various module parameters.
 
-void lora_wan::progModeDis(){
+void loraWan::progModeDis(){
 
     Serial.print("X\r\n");   // Exit program mode. Retains all configurations.
     digitalWrite(PROG_PIN,HIGH);
@@ -57,7 +57,7 @@ void lora_wan::progModeDis(){
 //  set Destination node address. Call function with destination id 
 // Destination ID is accepted as a 16-bit integer(default int size in most arduino boards), as the id is a 16 bit number.
 
-void lora_wan::setDestination(int destinationID){
+void loraWan::setDestination(int destinationID){
     progMode();
 
     Serial.print("D=");
@@ -71,7 +71,7 @@ void lora_wan::setDestination(int destinationID){
 
 // set network Id. This function helps to set network id of the transmitting device
 
-void lora_wan::setNetworkID(int networkID){
+void loraWan::setNetworkID(int networkID){
     progMode();
     
     Serial.print("N=");
@@ -85,7 +85,7 @@ void lora_wan::setNetworkID(int networkID){
 
 // Controller setup. This Function helps to set a module as the transmitting controller. This sets the network id to 0.
 
-void lora_wan::setGateway(){
+void loraWan::setGateway(){
     progMode();
     
     GATEWAY=true;

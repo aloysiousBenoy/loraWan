@@ -1,4 +1,3 @@
-#ifndef lora_wan_h
 #define lora_wan_h
 
 class lora_wan
@@ -22,5 +21,3 @@ public:
 
 
 
-
-#endif

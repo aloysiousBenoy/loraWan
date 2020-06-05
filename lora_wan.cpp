@@ -10,7 +10,7 @@ v0.1
 
 */
 #include "Arduino.h"
-#include <Serial.h>
+// #include <Serial.h>
 #include "lora_wan.h"
 // lora_wan constructor for starting the communication with the LoRa module.
 // The Default baud rate for normal serial communication for this specific module is 115200 bauds. This may change depending your module.

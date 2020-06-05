@@ -12,11 +12,11 @@ private:
     long t_BAUD;
     bool GATEWAY;
 public:
-    lora_wan(int CTS, int PROG, int TX = 1, int RX = 0, int baud = 115200, int t_baud);
+    lora_wan(int CTS, int PROG, int TX = 1, int RX = 0, long baud = 115200, long t_baud);
     void progMode();
     void progModeDis();
-    void setDestination(byte destinationID[]);
-    void setNetworkID(byte networkID[]);
+    void setDestination(int destinationID);
+    void setNetworkID(int networkID);
     void setGateway();
 };
 
